@@ -1,0 +1,17 @@
+gcloud config set compute/zone europe-west4-a
+europe-west4
+
+
+sudo apt-get update; sudo apt-get install -y openjdk-17-jdk; wget https://github.com/lionell/labs/raw/master/parcs/Daemon/Daemon.jar; java -jar Daemon.jar
+
+java -jar Daemon.jar&
+
+ sudo apt-get update && sudo apt-get install -y openjdk-17-jdk && wget https://github.com/lionell/labs/raw/master/parcs/HostsServer/TCPHostsServer.jar 
+
+
+touch hosts.list; echo 10.164.0.3 >> hosts.list; echo 10.164.0.2 >> hosts.list; echo 10.164.0.7 >> hosts.list; echo 10.164.0.5 >> hosts.list;
+
+java -jar TCPHostsServer.jar&
+
+
+java -cp 'parcs.jar:HashCracker.jar' HashCracker 4
