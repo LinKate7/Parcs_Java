@@ -10,7 +10,7 @@ public class HashCracker implements AM {
     // Configuration (same as Python version)
     private static final String CHAR_SET = "abcdefghijklmnopqrstuvwxyz";
     private static final int MIN_LEN = 1;
-    private static final int MAX_LEN = 5;
+    private static int MAX_LEN = 6;
 
     private static long startTime = 0;
 
@@ -29,15 +29,14 @@ public class HashCracker implements AM {
 
     public static void main(String[] args) throws Exception {
 
-        if (args.length != 1) {
-            System.err.println("Usage: HashCracker <number-of-workers>");
+        if (args.length != 3) {
+            System.err.println("Usage: HashCracker <number-of-workers> <secret> <max-len>");
             System.exit(1);
         }
 
         int k = Integer.parseInt(args[0]);
-
-        // Example secret (same as Python)
-        String secret = "tyujh";
+        String secret = args[1];
+        MAX_LEN = Integer.parseInt(args[2]);
         String targetHash = sha256(secret);
 
         long totalKeyspace = calculateKeyspaceSize();
